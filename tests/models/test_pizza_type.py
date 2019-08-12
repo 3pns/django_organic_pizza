@@ -13,3 +13,6 @@ class PizzaTypeModelTest(TestCase): #(TransactionTestCase):
     def test_unicity_of_name(self):
         duplicate_pizza_type = PizzaTypeFactory.build(name = self.pizza_type.name)
         expect(duplicate_pizza_type.save).to(raise_error(IntegrityError))
+
+    def test_to_string(self):
+        expect("{}".format(self.pizza_type)).to(equal(self.pizza_type.name))
