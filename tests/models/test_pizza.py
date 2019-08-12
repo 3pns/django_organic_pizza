@@ -1,10 +1,12 @@
 from django.test import TestCase
 from tests.factories import *
 from expects import *
+from django_organic_pizza.models import *
+
 from django.db import IntegrityError
 from django.core.exceptions import ValidationError
 
-class PizzaModelTest(TestCase): #(TransactionTestCase):
+class PizzaModelTest(TestCase):
     def setUp(self):
         self.pizza = PizzaFactory.create()
 
@@ -28,3 +30,9 @@ class PizzaModelTest(TestCase): #(TransactionTestCase):
 
     def test_to_string(self):
         expect("{}".format(self.pizza)).to(equal(self.pizza.name))
+
+    def test_buy(self):
+        transaction = self.pizza.buy()
+        expect(transaction).to(be_a(Transaction))
+        expect(transaction.pizza_id).to(equal(self.pizza))
+        expect(transaction.price).to(equal(self.pizza.price))

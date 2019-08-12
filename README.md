@@ -71,6 +71,7 @@ First copy docker-compose.yml.dist to docker-compose.yml and replace the values 
 ˜˜˜ bash
 git clone my_url
 cd django_organic_pizza
+python manage.py collectstatic
 docker-compose up --build
 docker exec -it django_organic_pizza bash
 python manage.py migrate

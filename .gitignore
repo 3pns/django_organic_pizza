@@ -19,3 +19,4 @@ coverage.xml
 *.css.map
 
 docker-compose.yml
+static

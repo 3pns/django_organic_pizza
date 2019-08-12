@@ -3,7 +3,7 @@ from tests.factories import *
 from expects import *
 from django.db import IntegrityError
 
-class PizzaTypeModelTest(TestCase): #(TransactionTestCase):
+class PizzaTypeModelTest(TestCase):
     def setUp(self):
         self.pizza_type = PizzaTypeFactory.create()
 
