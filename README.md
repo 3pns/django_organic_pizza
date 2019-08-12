@@ -12,7 +12,7 @@ The best organic pizzas in town
 
 requirements : OSX with brew as package manager
 
-˜˜˜ bash
+```
 brew install pyenv
 brew install pyenv-virtualenv
 pyenv install 3.7.4 # run below command instead in case of error related to OSX Mojave
@@ -25,14 +25,14 @@ CREATE DATABASE django_organic_pizza_development WITH OWNER '~' ENCODING 'utf-8'
 exit
 python manage.py migrate
 python manage.py runserver
-˜˜˜
+```
 
 ## Run test suit
 
-˜˜˜ bash
+```
 coverage run manage.py test
 coverage html
-˜˜˜
+```
 
 ## Production installation
 
@@ -47,7 +47,7 @@ coverage html
 
 CoreOs :
 
-˜˜˜ bash
+```
 if [ ! -d "/opt/bin" ]; then
   echo "creating /opt/bin dir"
   sudo mkdir -p /opt/bin
@@ -57,18 +57,18 @@ latest_targz=$(curl -s https://api.github.com/repos/docker/compose/releases/late
 
 sudo curl -L $latest_targz -o /opt/bin/docker-compose
 sudo chmod +x /opt/bin/docker-compose
-˜˜˜
+```
 
 Debian (not tested):
-˜˜˜ bash
+```
 TODO
-˜˜˜
+```
 
 ### Build and run :
 
 First copy docker-compose.yml.dist to docker-compose.yml and replace the values in ~
 
-˜˜˜ bash
+```
 git clone my_url
 cd django_organic_pizza
 python manage.py collectstatic
@@ -77,6 +77,6 @@ docker exec -it django_organic_pizza bash
 python manage.py migrate
 python manage.py generate_random_pizzas
 exit
-˜˜˜
+```
 
 
