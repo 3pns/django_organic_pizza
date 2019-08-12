@@ -75,6 +75,7 @@ python manage.py collectstatic
 docker-compose up --build
 docker exec -it django_organic_pizza bash
 python manage.py migrate
+python manage.py generate_random_pizzas
 exit
 ˜˜˜
 

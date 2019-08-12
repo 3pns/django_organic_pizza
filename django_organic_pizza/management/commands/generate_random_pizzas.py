@@ -12,7 +12,7 @@ class Command(BaseCommand):
         pizza_types.append(PizzaType.objects.get_or_create(name="Chicago")[0])
         pizza_types.append(PizzaType.objects.get_or_create(name="New York")[0])
 
-        # get existing current pizzas in the database
+        # generate pizzas
         keywords = ["Margherita", "Marinara", "Quattro", "Stagioni", "Carbonara", "Frutti", "di Mare", "Formaggi", "Crudo", "Napoletana", "Pugliese", "Montanara", "Emiliana", "Romana", "Fattoria"]
         pizzas = []
         for pizza_type in pizza_types:
@@ -26,6 +26,8 @@ class Command(BaseCommand):
                 pizza.price = decimal.Decimal(random.randrange(0, 9999))/100
                 pizza.save()
                 pizzas.append(pizza)
+        
+        # buy pizzas
         for pizza in pizzas:
             buy_count = random.randint(0,100)
             for _ in range(buy_count):

@@ -34,10 +34,10 @@ DATABASES = {
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-if ENV == "production" : DEBUG = False
+if ENV == "production": DEBUG = False
 
 ALLOWED_HOSTS = ['localhost', '0.0.0.0']
-if ENV == "production" : ALLOWED_HOSTS.append('DJANGO_ORGANIC_PIZZA_HOST')
+if ENV == "production": ALLOWED_HOSTS.append('DJANGO_ORGANIC_PIZZA_HOST')
 # if ENV == "production" : STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Application definition
 
@@ -151,14 +151,9 @@ LOGGING = {
         },
     },
     'loggers': {
-        '': {
+        'django': {
             'handlers': ['console'],
             'propagate': True,
-        },
-        'django.db': {
-            'handlers': ['console'],
-            'propagate': True,
-            'level': 'DEBUG',
         },
     },
 }
