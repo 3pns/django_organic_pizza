@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  django_organic_pizza:
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      DJANGO_ORGANIC_PIZZA_SECRET_KEY: '~'
+      DJANGO_ORGANIC_PIZZA_DB_NAME: 'django_organic_pizza_production'
+      DJANGO_ORGANIC_PIZZA_DB_USER: 'django_organic_pizza_production'
+      DJANGO_ORGANIC_PIZZA_DB_PASSWORD: '~'
+      DJANGO_ENV: 'production'
+    container_name: 'django_organic_pizza'
+    ports:
+      - '8000:8000'
+    network_mode: 'bridge'
+    depends_on:
+      - postgresql
+    links:
+      - postgresql
+  postgresql:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: 'django_organic_pizza_production'
+      POSTGRES_PASSWORD: '~'
+      POSTGRES_DB: 'django_organic_pizza_production'
+    network_mode: 'bridge'
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+volumes:
+  pg_data:
+    driver: local

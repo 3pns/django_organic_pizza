@@ -1,0 +1,29 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block title %}Welcome - {{ block.super }}{% endblock %}
+
+{% block stylesheet %}
+{{ block.super }}
+{% endblock %}
+
+{% block logo %}
+<p class="title-logo">Django Organic Pizza</p>
+{% endblock %}
+
+
+{% block body %}
+<h1>Django Organic Pizza</h1>
+<div class="container">
+<p>Thank you for coming today ! To buy a pizza you need to run pizzamanager:buy from your development environment or from inside the container</p>
+
+</div>
+{% endblock body %}
+
+{% block linkscript %}
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript">
+</script>
+{% endblock %}
