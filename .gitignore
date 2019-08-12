@@ -20,3 +20,4 @@ coverage.xml
 
 docker-compose.yml
 static
+tmp

@@ -34,5 +34,5 @@ class PizzaModelTest(TestCase):
     def test_buy(self):
         transaction = self.pizza.buy()
         expect(transaction).to(be_a(Transaction))
-        expect(transaction.pizza_id).to(equal(self.pizza))
+        expect(transaction.pizza_id).to(equal(self.pizza.id))
         expect(transaction.price).to(equal(self.pizza.price))

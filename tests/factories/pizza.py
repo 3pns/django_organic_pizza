@@ -9,4 +9,4 @@ class PizzaFactory(factory.django.DjangoModelFactory):
 
     name = factory.Sequence(lambda n: 'pizza_{0}'.format(n))
     price = decimal.Decimal(random.randrange(0, 9999))/100
-    pizza_type_id = PizzaTypeFactory.create()
+    pizza_type = PizzaTypeFactory.create()

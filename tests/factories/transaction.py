@@ -8,4 +8,4 @@ class TransactionFactory(factory.django.DjangoModelFactory):
         model = Transaction
 
     price = decimal.Decimal(random.randrange(0, 9999))/100
-    pizza_id = PizzaFactory.create()
+    pizza = PizzaFactory.create()
