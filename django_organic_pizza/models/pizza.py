@@ -8,8 +8,5 @@ class Pizza(models.Model):
     price = models.DecimalField( null=False, default=0.00, max_digits=12, decimal_places=2, validators=[MinValueValidator(Decimal('0.00') )] )
     pizza_type = models.ForeignKey("PizzaType", null=False, on_delete=models.CASCADE)
 
-    def __str__(self):
-        return "{}".format(self.name)
-
     def buy(self):
         return Transaction.objects.create(pizza = self, price = self.price)

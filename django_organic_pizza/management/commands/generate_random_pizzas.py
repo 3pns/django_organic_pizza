@@ -24,7 +24,7 @@ class Command(BaseCommand):
                 random_name = "{0} {1} {2}".format(pizza_type.name, keywords[index_1], keywords[index_2])
                 pizza = Pizza.objects.get_or_create(name=random_name, pizza_type=pizza_type)[0]
                 pizza.price = decimal.Decimal(random.randrange(0, 9999))/100
-                pizza.save
+                pizza.save()
                 pizzas.append(pizza)
         for pizza in pizzas:
             buy_count = random.randint(0,100)

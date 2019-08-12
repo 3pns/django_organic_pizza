@@ -146,25 +146,19 @@ LOGGING = {
         'console': {
             'level': 'DEBUG',
             'class': 'logging.StreamHandler',
-            'formatter': 'simple',
+            'formatter': 'verbose',
             'filters': ['require_debug_false'],
         },
     },
     'loggers': {
-        'django': {
+        '': {
             'handlers': ['console'],
             'propagate': True,
-            'filters': ['require_debug_true'],
         },
-        'django.request': {
+        'django.db': {
             'handlers': ['console'],
-            'level': ("DEBUG") ,
-            'propagate': False,
-        },
-        'django.server': {
-            'handlers': ['console'],
-            'level': ("DEBUG") ,
-            'propagate': False,
+            'propagate': True,
+            'level': 'DEBUG',
         },
     },
 }

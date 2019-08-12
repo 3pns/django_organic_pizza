@@ -11,12 +11,32 @@
 <p class="title-logo">Django Organic Pizza</p>
 {% endblock %}
 
-
 {% block body %}
 <h1>Django Organic Pizza</h1>
 <div class="container">
-<p>Thank you for coming today ! To buy a pizza you need to run pizzamanager:buy from your development environment or from inside the container</p>
-
+<p>Thank you for coming today ! To buy a pizza you need to run the generate_random_pizzas command from your development environment or host.</p>
+    <table class="table table-responsive-sm table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Type</th>
+          <th>Pizza Sold</th>
+          <th>Total Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for pizza in pizzas %}
+          <tr>
+            <td>{{ pizza.name }}</td>
+            <td>{{ pizza.price }}</td>
+            <td>{{ pizza.pizza_type.name }}</td>
+            <td>{{ pizza.total_sold }}</td>
+            <td>{{ pizza.total_amount }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
 </div>
 {% endblock body %}
 
